@@ -1,2 +1,4 @@
-# learning_rust
-# learning_rust
+# 🦀
+
+Yes i am learning Rust
+
