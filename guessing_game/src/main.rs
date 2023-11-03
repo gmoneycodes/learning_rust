@@ -5,11 +5,11 @@ use rand::Rng;
 // Accompanying notes are available in ruyoga.io (look for the blogpost Learning Rust Chapter 2)
 
 fn main() {
-    println!("Guess a number between 1 and 100!");
+    println!("😽: Guess a number between 1 and 100!");
     let random_number = rand::thread_rng().gen_range(1..=100);
 
     loop{
-        println!("Please input your guess");
+        println!("😽: Please input your guess");
 
         let mut guess : String = String::new();
 
@@ -20,16 +20,21 @@ fn main() {
             .expect("failed to read line");
 
 
-        let guess: u32 = guess.trim().parse().expect("please type a number");
+        let guess: u32 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => {
+                println!("😾: This is not a number but ok \n");
+                continue;
+            }
+        };
+
         match guess.cmp(&random_number){
-            Ordering::Greater => println!("Too big bro \n"),
-            Ordering::Less => println!("Too small buddy \n"),
+            Ordering::Greater => println!("😽: Too big bro \n"),
+            Ordering::Less => println!("😽: Too small buddy \n"),
             Ordering::Equal => {
-                println!("Congratulations!! you just won a new iPhone 13");
+                println!("😽: Congratulations!! you just won a new iPhone 13");
                 break;
             },
         }
-
-        println!("You guessed: {guess}");
     }
 }
