@@ -1,4 +1,3 @@
 # 🦀
 
-Yes i am learning Rust
-
+I'm learning Rust
